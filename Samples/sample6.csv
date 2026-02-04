@@ -1,0 +1,7 @@
+Equipment Name,Type,Flowrate,Pressure,Temperature
+Pump High,Pump,300,30,90
+Pump Low,Pump,50,5,25
+Reactor High,Reactor,400,35,220
+Reactor Low,Reactor,250,20,160
+Heat Exchanger Extreme,Heat Exchanger,280,25,140
+Valve Extreme,Valve,60,8,40

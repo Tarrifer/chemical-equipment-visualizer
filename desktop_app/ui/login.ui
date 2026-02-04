@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>LoginDialog</class>
+
+ <widget class="QDialog" name="LoginDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>600</width>
+    <height>700</height>
+   </rect>
+  </property>
+
+  <property name="windowTitle">
+   <string>Chemical Equipment Visualizer</string>
+  </property>
+
+  <property name="styleSheet">
+   <string notr="true">
+    QDialog {
+        background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                                   stop:0 #1a252f, stop:1 #2c3e50);
+    }
+
+    QLabel#label_title {
+        color: #ffffff;
+        font-size: 22px;
+        font-weight: 600;
+        padding: 10px;
+    }
+
+    QLabel#label_subtitle {
+        color: #95a5a6;
+        font-size: 13px;
+    }
+
+    QLabel {
+        color: #ecf0f1;
+        font-size: 12px;
+        font-weight: 500;
+        padding-left: 5px;
+    }
+
+    QLineEdit {
+        background-color: #34495e;
+        border: 2px solid #4a5f7f;
+        border-radius: 8px;
+        padding: 14px 16px;
+        font-size: 14px;
+        color: #ecf0f1;
+    }
+
+    QLineEdit:focus {
+        border: 2px solid #5dade2;
+        background-color: #2c3e50;
+    }
+
+    QCheckBox {
+        color: #95a5a6;
+        font-size: 12px;
+    }
+
+    QPushButton#btn_login {
+        background-color: #2980b9;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        padding: 15px;
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    QPushButton#btn_login:hover {
+        background-color: #3498db;
+    }
+
+    QPushButton#btn_create_account {
+        background-color: #27ae60;
+        color: white;
+        border-radius: 8px;
+        padding: 15px;
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    QPushButton#btn_signup, QPushButton#btn_back_to_login {
+        background-color: transparent;
+        color: #5dade2;
+        border: none;
+        font-size: 13px;
+        padding: 6px;
+    }
+
+    QPushButton#btn_signup:hover, QPushButton#btn_back_to_login:hover {
+        text-decoration: underline;
+    }
+
+    QFrame#login_frame {
+        background-color: rgba(255, 255, 255, 0.05);
+        border-radius: 15px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+   </string>
+  </property>
+
+  <layout class="QVBoxLayout">
+   <property name="leftMargin"><number>50</number></property>
+   <property name="topMargin"><number>50</number></property>
+   <property name="rightMargin"><number>50</number></property>
+   <property name="bottomMargin"><number>50</number></property>
+
+   <item>
+    <widget class="QFrame" name="login_frame">
+     <layout class="QVBoxLayout">
+      <property name="spacing"><number>22</number></property>
+
+      <item>
+       <widget class="QStackedWidget" name="stackedWidget">
+
+        <widget class="QWidget" name="page_login">
+         <layout class="QVBoxLayout">
+          <item><widget class="QLabel" name="label_title"><property name="text"><string>Chemical Equipment Visualizer</string></property><property name="alignment"><set>Qt::AlignCenter</set></property></widget></item>
+          <item><widget class="QLabel" name="label_subtitle"><property name="text"><string>Sign in to continue</string></property><property name="alignment"><set>Qt::AlignCenter</set></property></widget></item>
+          <item><widget class="QLineEdit" name="txt_username"><property name="placeholderText"><string>Username</string></property></widget></item>
+          <item><layout class="QHBoxLayout">
+            <item><widget class="QLineEdit" name="txt_password"><property name="echoMode"><enum>QLineEdit::Password</enum></property><property name="placeholderText"><string>Password</string></property></widget></item>
+            <item><widget class="QCheckBox" name="chk_show_password"/></item>
+          </layout></item>
+          <item><widget class="QPushButton" name="btn_login"><property name="text"><string>Sign In</string></property></widget></item>
+          <item><widget class="QPushButton" name="btn_signup"><property name="text"><string>Create new account</string></property></widget></item>
+         </layout>
+        </widget>
+
+        <widget class="QWidget" name="page_signup">
+         <layout class="QVBoxLayout">
+          <item><widget class="QLabel" name="label_title"><property name="text"><string>Create New Account</string></property><property name="alignment"><set>Qt::AlignCenter</set></property></widget></item>
+          <item><widget class="QLabel" name="label_subtitle"><property name="text"><string>Register to continue</string></property><property name="alignment"><set>Qt::AlignCenter</set></property></widget></item>
+          <item><widget class="QLineEdit" name="signup_username"><property name="placeholderText"><string>Username</string></property></widget></item>
+             <item>
+              <layout class="QHBoxLayout">
+                <item>
+                  <widget class="QLineEdit" name="signup_password">
+                    <property name="echoMode">
+                      <enum>QLineEdit::Password</enum>
+                    </property>
+                    <property name="placeholderText">
+                      <string>Password</string>
+                    </property>
+                  </widget>
+                </item>
+                <item>
+                  <widget class="QCheckBox" name="chk_signup_show_password"/>
+                </item>
+              </layout>
+            </item>
+
+            <item>
+              <widget class="QLineEdit" name="signup_confirm">
+                <property name="echoMode">
+                  <enum>QLineEdit::Password</enum>
+                </property>
+                <property name="placeholderText">
+                  <string>Confirm Password</string>
+                </property>
+              </widget>
+            </item>
+          <item><widget class="QPushButton" name="btn_create_account"><property name="text"><string>Create Account</string></property></widget></item>
+          <item><widget class="QPushButton" name="btn_back_to_login"><property name="text"><string>Back to Login</string></property></widget></item>
+         </layout>
+        </widget>
+
+       </widget>
+      </item>
+
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+</ui>

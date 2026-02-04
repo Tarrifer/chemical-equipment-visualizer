@@ -1,0 +1,442 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1100</width>
+    <height>750</height>
+   </rect>
+  </property>
+
+  <property name="windowTitle">
+   <string>Chemical Equipment Visualizer</string>
+  </property>
+
+  <property name="styleSheet">
+   <string notr="true">
+    QMainWindow {
+        background-color: #ecf0f1;
+    }
+    
+    QWidget#centralwidget {
+        background-color: #ecf0f1;
+    }
+    
+    QFrame#header_frame {
+        background: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+                                   stop:0 #2c3e50, stop:1 #34495e);
+        border-radius: 0px;
+        min-height: 70px;
+        max-height: 70px;
+    }
+    
+    QLabel#app_title {
+        color: #ecf0f1;
+        font-size: 18px;
+        font-weight: bold;
+        padding-left: 15px;
+    }
+    
+    QPushButton {
+        border: none;
+        border-radius: 6px;
+        padding: 10px 20px;
+        font-size: 12px;
+        font-weight: 600;
+    }
+    
+    QPushButton#btn_logout {
+        background-color: transparent;
+        color: #e74c3c;
+        border: 2px solid #e74c3c;
+        padding: 8px 18px;
+    }
+    
+    QPushButton#btn_logout:hover {
+        background-color: #e74c3c;
+        color: white;
+    }
+    
+    QPushButton#btn_upload {
+        background-color: #3498db;
+        color: white;
+        padding: 12px 30px;
+        font-size: 13px;
+    }
+    
+    QPushButton#btn_upload:hover {
+        background-color: #2980b9;
+    }
+    
+    QPushButton#btn_history {
+        background-color: #95a5a6;
+        color: white;
+    }
+    
+    QPushButton#btn_history:hover {
+        background-color: #7f8c8d;
+    }
+    
+    QPushButton#btn_pdf {
+        background-color: #27ae60;
+        color: white;
+    }
+    
+    QPushButton#btn_pdf:hover {
+        background-color: #229954;
+    }
+    
+    QFrame#stats_card, QFrame#chart_card {
+        background-color: white;
+        border-radius: 12px;
+        border: 1px solid #d5dbdb;
+    }
+    
+    QLabel#section_title {
+        color: #2c3e50;
+        font-size: 16px;
+        font-weight: bold;
+        padding: 10px 0px;
+    }
+    
+    QLabel#lbl_total, QLabel#lbl_flowrate, 
+    QLabel#lbl_pressure, QLabel#lbl_temperature {
+        color: #34495e;
+        font-size: 13px;
+        padding: 8px 15px;
+        background-color: #f8f9fa;
+        border-radius: 6px;
+        border-left: 4px solid #3498db;
+    }
+    
+    QLabel#lbl_distribution {
+        color: #566573;
+        font-size: 12px;
+        padding: 10px 15px;
+        background-color: #eaecee;
+        border-radius: 6px;
+    }
+    
+    QFrame#chartFrame {
+        background-color: white;
+        border-radius: 8px;
+    }
+   </string>
+  </property>
+
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="main_layout">
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
+
+    <item>
+     <widget class="QFrame" name="header_frame">
+      <layout class="QHBoxLayout" name="header_layout">
+       <property name="spacing">
+        <number>20</number>
+       </property>
+       <property name="leftMargin">
+        <number>20</number>
+       </property>
+       <property name="rightMargin">
+        <number>20</number>
+       </property>
+
+       <item>
+        <widget class="QLabel" name="app_title">
+         <property name="text">
+          <string>Chemical Equipment Visualizer</string>
+         </property>
+        </widget>
+       </item>
+
+       <item>
+        <spacer name="header_spacer">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+
+       <item>
+        <widget class="QPushButton" name="btn_logout">
+         <property name="text">
+          <string>Logout</string>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+        </widget>
+       </item>
+
+      </layout>
+     </widget>
+    </item>
+
+    <item>
+     <widget class="QWidget" name="content_widget">
+      <layout class="QVBoxLayout" name="content_layout">
+       <property name="spacing">
+        <number>20</number>
+       </property>
+       <property name="leftMargin">
+        <number>25</number>
+       </property>
+       <property name="topMargin">
+        <number>25</number>
+       </property>
+       <property name="rightMargin">
+        <number>25</number>
+       </property>
+       <property name="bottomMargin">
+        <number>25</number>
+       </property>
+
+       <item>
+        <layout class="QHBoxLayout" name="upload_layout">
+         <item>
+          <spacer name="upload_left_spacer">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+          </spacer>
+         </item>
+
+         <item>
+          <widget class="QPushButton" name="btn_upload">
+           <property name="minimumWidth">
+            <number>200</number>
+           </property>
+           <property name="text">
+            <string>Upload CSV File</string>
+           </property>
+           <property name="cursor">
+            <cursorShape>PointingHandCursor</cursorShape>
+           </property>
+          </widget>
+         </item>
+
+         <item>
+          <spacer name="upload_right_spacer">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </item>
+
+       <item>
+        <widget class="QFrame" name="stats_card">
+         <layout class="QVBoxLayout" name="stats_layout">
+          <property name="spacing">
+           <number>12</number>
+          </property>
+          <property name="leftMargin">
+           <number>20</number>
+          </property>
+          <property name="topMargin">
+           <number>15</number>
+          </property>
+          <property name="rightMargin">
+           <number>20</number>
+          </property>
+          <property name="bottomMargin">
+           <number>15</number>
+          </property>
+
+          <item>
+           <widget class="QLabel" name="section_title">
+            <property name="text">
+             <string>Equipment Summary</string>
+            </property>
+           </widget>
+          </item>
+
+          <item>
+           <widget class="QLabel" name="lbl_total">
+            <property name="text">
+             <string>Total Equipment: -</string>
+            </property>
+           </widget>
+          </item>
+
+          <item>
+           <widget class="QLabel" name="lbl_flowrate">
+            <property name="text">
+             <string>Average Flowrate: -</string>
+            </property>
+           </widget>
+          </item>
+
+          <item>
+           <widget class="QLabel" name="lbl_pressure">
+            <property name="text">
+             <string>Average Pressure: -</string>
+            </property>
+           </widget>
+          </item>
+
+          <item>
+           <widget class="QLabel" name="lbl_temperature">
+            <property name="text">
+             <string>Average Temperature: -</string>
+            </property>
+           </widget>
+          </item>
+
+          <item>
+           <widget class="QLabel" name="lbl_distribution">
+            <property name="wordWrap">
+             <bool>true</bool>
+            </property>
+            <property name="text">
+             <string>Equipment Type Distribution: Upload a CSV file to see results</string>
+            </property>
+           </widget>
+          </item>
+
+         </layout>
+        </widget>
+       </item>
+
+       <item>
+        <widget class="QFrame" name="chart_card">
+         <layout class="QVBoxLayout" name="chart_layout">
+          <property name="spacing">
+           <number>10</number>
+          </property>
+          <property name="leftMargin">
+           <number>15</number>
+          </property>
+          <property name="topMargin">
+           <number>15</number>
+          </property>
+          <property name="rightMargin">
+           <number>15</number>
+          </property>
+          <property name="bottomMargin">
+           <number>15</number>
+          </property>
+
+          <item>
+           <widget class="QLabel" name="chart_title">
+            <property name="text">
+             <string>Equipment Type Distribution</string>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">
+              QLabel#chart_title {
+                  color: #2c3e50;
+                  font-size: 15px;
+                  font-weight: bold;
+                  padding: 5px;
+              }
+             </string>
+            </property>
+           </widget>
+          </item>
+
+          <item>
+           <widget class="QFrame" name="chartFrame">
+            <property name="minimumHeight">
+             <number>280</number>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::NoFrame</enum>
+            </property>
+           </widget>
+          </item>
+
+         </layout>
+        </widget>
+       </item>
+
+       <item>
+        <layout class="QHBoxLayout" name="action_buttons_layout">
+         <property name="spacing">
+          <number>15</number>
+         </property>
+
+         <item>
+          <spacer name="actions_left_spacer">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+          </spacer>
+         </item>
+
+         <item>
+          <widget class="QPushButton" name="btn_history">
+           <property name="minimumWidth">
+            <number>150</number>
+           </property>
+           <property name="text">
+            <string>View History</string>
+           </property>
+           <property name="cursor">
+            <cursorShape>PointingHandCursor</cursorShape>
+           </property>
+          </widget>
+         </item>
+
+         <item>
+          <widget class="QPushButton" name="btn_pdf">
+           <property name="minimumWidth">
+            <number>200</number>
+           </property>
+           <property name="text">
+            <string>Download PDF Report</string>
+           </property>
+           <property name="cursor">
+            <cursorShape>PointingHandCursor</cursorShape>
+           </property>
+          </widget>
+         </item>
+
+         <item>
+          <spacer name="actions_right_spacer">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+          </spacer>
+         </item>
+
+        </layout>
+       </item>
+
+      </layout>
+     </widget>
+    </item>
+
+   </layout>
+  </widget>
+
+ </widget>
+
+ <resources/>
+ <connections/>
+</ui>
