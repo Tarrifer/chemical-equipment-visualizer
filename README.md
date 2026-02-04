@@ -137,6 +137,7 @@ A sample CSV file is included in the project for testing.
   - desktop_app/dist/ChemicalEquipmentVisualizer.exe
   - Backend must be running before launching the executable.
 - Pre-built Windows executable (optional): https://drive.google.com/drive/folders/19cCsa4FzzqfCpw3VQkJeb_S8IQayTp9p?usp=sharing
+- This project uses Python version 3.11.8
   
 ## Author:
 
